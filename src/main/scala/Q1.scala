@@ -13,12 +13,10 @@ object Q1_MostrarColumnas {
     SparkConfig.withSparkAndDataFrames("Q1-MostrarColumnas") {
       (spark: SparkSession, peajeDf, flujoDf) =>
 
-        println("=== Columnas específicas de peaje (nombre_peaje, departamento) ===")
         peajeDf
           .select("nombre_peaje", "departamento")
           .show(10, truncate = false)
 
-        println("=== Columnas específicas de flujo_peaje (anio, mes, veh_total, veh_imd) ===")
         flujoDf
           .select("anio", "mes", "veh_total", "veh_imd")
           .show(10, truncate = false)

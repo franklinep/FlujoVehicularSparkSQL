@@ -5,14 +5,6 @@ import org.apache.spark.sql.functions._
   Objetivo:
     Calcular, por peaje y año, el porcentaje de vehículos ligeros
     sobre el total de vehículos
-  Consulta:
-    - join entre flujo_peaje y peaje por 'id_peaje'.
-    - agrupar por anio, nombre_peaje, departamento.
-    - sumar 'veh_ligeros_total' y 'veh_total' por grupo.
-    - crear una columna nueva:
-        pct_ligeros = (total_ligeros / total_vehiculos) * 100
-      usando withColumn, col, when.
-    - ordenar por pct_ligeros desc.
 */
 
 object Q7_PorcentajeLigeros {

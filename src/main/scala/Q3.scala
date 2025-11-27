@@ -5,13 +5,6 @@ import org.apache.spark.sql.functions._
   Objetivo:
     Ordenar los peajes por la cantidad total de vehículos en un año concreto,
     para identificar cuáles son los peajes con mayor flujo.
-
-  Consulta:
-    - join peaje + flujo_peaje por id_peaje
-    - filtrar por anio = 2024
-    - agrupar por nombre_peaje, departamento
-    - sumar veh_total como vehiculos_2024
-    - ordenar desc por vehiculos_2024
 */
 
 object Q3_OrderBy {

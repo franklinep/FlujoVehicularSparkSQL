@@ -5,16 +5,6 @@ import org.apache.spark.sql.functions._
   Objetivo:
     Calcular el promedio del índice medio diario de vehículos (veh_imd)
     por año, para entender la evolución del flujo promedio en el tiempo.
-
-  Consulta:
-    - Usar la tabla flujo_peaje.
-    - Agrupar por 'anio'.
-    - Calcular AVG(veh_imd) como 'promedio_veh_imd'.
-    - Ordenar por 'anio'.
-
-  Output esperado:
-    Tabla con columnas:
-      anio | promedio_veh_imd
 */
 
 object Q5_PromedioVehImdPorAnio {

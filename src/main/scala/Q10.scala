@@ -28,7 +28,6 @@ object Q10_SQL_GroupByCount2 {
 
         val result = spark.sql(query)
 
-        println("=== SQL GroupBy + COUNT(DISTINCT) por año y administración ===")
         result.show(100, truncate = false)
     }
   }

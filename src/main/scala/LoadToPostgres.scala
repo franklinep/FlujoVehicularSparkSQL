@@ -6,9 +6,8 @@ object LoadToPostgres {
 
   def main(args: Array[String]): Unit = {
 
-    // =========================
     // CONFIGURACIÓN LOCAL
-    // =========================
+
     val csvPath = "C:\\Users\\frank\\IdeaProjects\\FlujoVehicularPeaje\\src\\main\\flujo_vehicular_peajes_2014_2025.csv"
     val jdbcUrl = "jdbc:postgresql://localhost:5432/dbflujovehicular"
     val dbUser  = "postgres"
@@ -27,9 +26,8 @@ object LoadToPostgres {
     connectionProps.setProperty("password", dbPass)
     connectionProps.setProperty("driver", "org.postgresql.Driver")
 
-    // =========================
     // 1. LEER CSV
-    // =========================
+
     val rawDf = spark.read
       .option("header", "true")
       .option("inferSchema", "true")
@@ -39,9 +37,8 @@ object LoadToPostgres {
     println("===== ESQUEMA DEL CSV =====")
     rawDf.printSchema()
 
-    // =========================
     // 2. TABLA PEAJE (EVITAR DUPLICADOS)
-    // =========================
+
     val peajeDf = rawDf
       .select(
         col("NOMBRE_PEAJE").as("nombre_peaje"),
@@ -50,14 +47,12 @@ object LoadToPostgres {
       )
       .distinct()
 
-    // Leer peajes ya existentes (puede estar vacía)
     val existingPeajesBase =
       spark.read
         .jdbc(jdbcUrl, "peaje", connectionProps)
         .select("nombre_peaje", "departamento")
         .distinct()
 
-    // Hacemos el anti-join SOLO por (nombre_peaje, departamento)
     val peajesNuevos = peajeDf.as("p")
       .join(
         existingPeajesBase.as("e"),
@@ -74,17 +69,15 @@ object LoadToPostgres {
     println("===== TABLA 'peaje' ACTUALIZADA =====")
 
 
-    // =========================
     // 3. LEER TABLA PEAJE CON id_peaje
-    // =========================
+
     val peajeDbDf = spark.read
       .jdbc(jdbcUrl, "peaje", connectionProps)
       .select("id_peaje", "nombre_peaje", "departamento", "administracion")
       .distinct()
 
-    // =========================
     // 4. PREPARAR DF PARA flujo_peaje
-    // =========================
+
     val flujoEnriquecido = rawDf
       .join(
         peajeDbDf,

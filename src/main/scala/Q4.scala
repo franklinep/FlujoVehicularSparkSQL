@@ -5,9 +5,6 @@ import org.apache.spark.sql.functions._
   Objetivo:
     Mostrar, por año, cuántos peajes distintos hay por tipo de administración,
     en formato wide (una columna por tipo de administración).
-
-  Output esperado:
-    anio | Concesionado | No concesionado | ...
 */
 
 object Q4_PivotPeajesPorAnio_Robusto {

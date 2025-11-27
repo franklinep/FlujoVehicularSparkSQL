@@ -5,13 +5,6 @@ import org.apache.spark.sql.functions._
   Objetivo:
     Unir la información de flujo (flujo_peaje) con el maestro de peajes (peaje)
     para ver, por peaje y año, el total de vehículos.
-
-  Consulta:
-    - join entre flujo_peaje y peaje usando 'id_peaje'.
-    - seleccionar columnas:
-        anio, mes, nombre_peaje, departamento, veh_total.
-    - ordenar por anio, mes y nombre_peaje.
-      ...
 */
 
 object Q6_JoinFlujoPeaje {
