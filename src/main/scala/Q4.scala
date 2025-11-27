@@ -26,7 +26,6 @@ object Q4_PivotPeajesPorAnio_Robusto {
           .agg(first($"num_peajes"))
           .na.fill(0)
 
-        println("=== Peajes por año y tipo de administracion (pivot dinámico) ===")
         pivoted.orderBy($"anio").show(100, truncate = false)
     }
   }
