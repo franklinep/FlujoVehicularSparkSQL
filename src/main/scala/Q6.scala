@@ -25,7 +25,7 @@ object Q6_JoinFlujoPeaje {
           )
           .orderBy(col("anio"), col("mes"), col("nombre_peaje"))
 
-        resultado.show(50, truncate = false)
+        resultado.show(25, truncate = false)
     }
   }
 }

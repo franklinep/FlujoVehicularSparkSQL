@@ -20,7 +20,7 @@ object Q2_Filter {
 
         filtrado
           .select("id_flujo", "anio", "mes", "veh_total")
-          .show(50, truncate = false)
+          .show(25, truncate = false)
     }
   }
 }

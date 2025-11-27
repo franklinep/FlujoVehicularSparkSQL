@@ -7,9 +7,9 @@ object SparkConfig {
   // CONFIGURACIÓN GLOBAL
   // =========================
   // Ajusta estos valores UNA vez y se reutilizan en todos los Qx.scala
-  val jdbcUrl: String = "jdbc:postgresql://localhost:5432/dbflujovehicular"
-  val dbUser:  String = "postgres"
-  val dbPass:  String = "postgres"
+  val jdbcUrl: String = "jdbc:postgresql://localhost:5432/pc4"
+  val dbUser:  String = "jhozzel"
+  val dbPass:  String = "1234"
 
   // =========================
   // PROPIEDADES JDBC

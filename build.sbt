@@ -10,6 +10,7 @@ lazy val root = (project in file("."))
       "org.scala-lang" % "scala-reflect" % "2.12.10",
       "org.apache.spark" %% "spark-core" % "3.0.1",
       "org.apache.spark" %% "spark-sql"  % "3.0.1",
+      "org.apache.spark" %% "spark-mllib" % "3.0.1",
       "org.postgresql" % "postgresql" % "42.2.20"
     ),
     Compile / run / fork := true

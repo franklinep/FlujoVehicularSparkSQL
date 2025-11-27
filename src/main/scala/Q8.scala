@@ -30,7 +30,7 @@ object Q8_SQL_Join {
 
         val result = spark.sql(query)
 
-        result.show(50, truncate = false)
+        result.show(25, truncate = false)
     }
   }
 }

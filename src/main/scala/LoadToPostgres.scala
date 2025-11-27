@@ -8,10 +8,10 @@ object LoadToPostgres {
 
     // CONFIGURACIÓN LOCAL
 
-    val csvPath = "C:\\Users\\frank\\IdeaProjects\\FlujoVehicularPeaje\\src\\main\\flujo_vehicular_peajes_2014_2025.csv"
-    val jdbcUrl = "jdbc:postgresql://localhost:5432/dbflujovehicular"
-    val dbUser  = "postgres"
-    val dbPass  = "postgres"
+    val csvPath = "/home/jhozzel/IdeaProjects/FlujoVehicularSparkSQL/src/main/flujo_vehicular_peajes_2014_2025.csv"
+    val jdbcUrl = "jdbc:postgresql://localhost:5432/pc4"
+    val dbUser  = "jhozzel"
+    val dbPass  = "1234"
 
     val spark = SparkSession.builder()
       .appName("FlujoVehicularPeaje-LoadToPostgres")
@@ -50,13 +50,13 @@ object LoadToPostgres {
     val existingPeajesBase =
       spark.read
         .jdbc(jdbcUrl, "peaje", connectionProps)
-        .select("nombre_peaje", "departamento")
+        .select("nombre_peaje", "departamento", "administracion")
         .distinct()
 
     val peajesNuevos = peajeDf.as("p")
       .join(
         existingPeajesBase.as("e"),
-        Seq("nombre_peaje", "departamento"),
+        Seq("nombre_peaje", "departamento", "administracion"),
         "left_anti"
       )
 

@@ -30,7 +30,7 @@ object Q11_SQL_OrderBy1 {
 
         val result = spark.sql(query)
 
-        result.show(50, truncate = false)
+        result.show(30, truncate = false)
     }
   }
 }

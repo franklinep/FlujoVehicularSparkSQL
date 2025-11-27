@@ -28,7 +28,7 @@ object Q10_SQL_GroupByCount2 {
 
         val result = spark.sql(query)
 
-        result.show(100, truncate = false)
+        result.show(30, truncate = false)
     }
   }
 }

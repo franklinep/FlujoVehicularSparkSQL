@@ -29,7 +29,7 @@ object Q12_SQL_OrderBy2 {
 
         val result = spark.sql(query)
 
-        result.show(50, truncate = false)
+        result.show(25, truncate = false)
     }
   }
 }

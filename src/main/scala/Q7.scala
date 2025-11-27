@@ -33,7 +33,7 @@ object Q7_PorcentajeLigeros {
           )
           .orderBy(desc("pct_ligeros"))
 
-        resultado.show(50, truncate = false)
+        resultado.show(25, truncate = false)
     }
   }
 }
